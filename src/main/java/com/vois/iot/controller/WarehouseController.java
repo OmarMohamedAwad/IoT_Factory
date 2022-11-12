@@ -42,9 +42,9 @@ public class WarehouseController {
 	@PatchMapping("/device")
     public ResponseEntity update(@RequestBody Device info) throws Exception {
 		try {
-			Device device = deviceRepo.findByID(info.ID);
-			device.setStatus(info.status);
-			device.setTemperature(info.temperature);
+			Device device = deviceRepo.findByID(info.getID());
+			device.setStatus(info.getStatus());
+			device.setTemperature(info.getTemperature());
 			deviceRepo.save(device);
 			return new ResponseEntity(new ResponseObject(true, null, "OK"), HttpStatus.OK);
 		}
@@ -59,7 +59,7 @@ public class WarehouseController {
 	@DeleteMapping("/device")
     public ResponseEntity delete(@RequestBody Device info) throws Exception {
 		try {
-			Device device = deviceRepo.findByID(info.ID);
+			Device device = deviceRepo.findByID(info.getID());
 			deviceRepo.delete(device);
 			return new ResponseEntity(new ResponseObject(true, null, "OK"), HttpStatus.OK);
 		}

@@ -5,7 +5,6 @@ import javax.persistence.Table;
 
 import lombok.*;
 import org.springframework.data.annotation.LastModifiedDate;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -31,13 +30,21 @@ public class Device {
 //			);
 	@Id
     @Column(name = "ID")
-    public int ID;
+	private int ID;
     @Column(name = "NAME")
-    public String name;
+    private String name;
     @Column(name = "TEMPERATURE")
-    public float temperature;
+    private float temperature;
     @Column(name = "STATUS")
-    public String status;
+    private String status;
+    
+    @OneToOne
+    @JoinColumn(name = "sim_id", referencedColumnName = "id")
+    private SIM simCard;
+    
+    @ManyToOne
+    @JoinColumn(name="category_id")
+    private Category category;
     
 	public int getID() {
 		return ID;
@@ -63,6 +70,18 @@ public class Device {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public SIM getSimCard() {
+		return simCard;
+	}
+	public void setSimCard(SIM simCard) {
+		this.simCard = simCard;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
     
-    
+			
 }
