@@ -31,12 +31,38 @@ public class Device {
 //			);
 	@Id
     @Column(name = "ID")
-    public int deviceId;
+    public int ID;
     @Column(name = "NAME")
     public String name;
     @Column(name = "TEMPERATURE")
-    public String temperature;
+    public float temperature;
     @Column(name = "STATUS")
     public String status;
-
+    
+	public int getID() {
+		return ID;
+	}
+	public void setID(int iD) {
+		ID = iD;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public float getTemperature() {
+		return temperature;
+	}
+	public void setTemperature(float temperature) {
+		this.temperature = temperature;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+    
+    
 }
