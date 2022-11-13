@@ -17,13 +17,6 @@ import lombok.Setter;
 @Getter
 @Table(name = "WAREHOUSE")
 public class Warehouse {
-
-//	CREATE TABLE warehouse(
-//			id INT AUTO_INCREMENT,
-//			   name VARCHAR(100),
-//			   country VARCHAR(100),
-//			   PRIMARY KEY(id)
-//			);
 	
 	@Id
     @Column(name = "ID")

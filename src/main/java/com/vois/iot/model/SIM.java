@@ -6,8 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.apache.tomcat.jni.Library;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -22,14 +20,6 @@ import lombok.Setter;
 @Getter
 @Table(name = "SIM")
 public class SIM {
-
-//	CREATE TABLE sim(
-//			id INT AUTO_INCREMENT,
-//			   operator_code VARCHAR(100),
-//			   country VARCHAR(20),
-//			   status ENUM('Active', 'Pending', 'Blocked', 'Deactivated')
-//			   PRIMARY KEY(id),
-//			);
 	
 	@Id
     @Column(name = "ID")
@@ -72,9 +62,5 @@ public class SIM {
 	public Device getDevice() {
 		return device;
 	}
-//	public void setDevice(Device device) {
-//		this.device = device;
-//	}
     
-	
 }
