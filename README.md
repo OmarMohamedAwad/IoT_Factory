@@ -27,7 +27,7 @@
 - MVC approach is used here.
 - The code is tasted using unit and integration testing for the controller and the service.
 
-## Assumtions
+## Assumptions
 **The server:**
 
 1. The server provide the following APIs:
@@ -76,6 +76,7 @@ Note: Postman requests are attached inside the GitHub repository.
 <img src="project source/System Draw-System Design.png">
 
 ## Server System Components
+<img src="project source/System Components.png">
 
 ## System Implementation
 ### Server Class Diagram
