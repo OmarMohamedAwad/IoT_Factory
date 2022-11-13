@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface DeviceRepo extends JpaRepository<Device, String>{
 
 	List<Device> findByStatus(String status);
-	List<Device> findByStatusAndTemperatureBetween(String status,float min, float max);
+	List<Device> findByStatusAndTemperatureBetweenOrderByIDAsc(String status,float min, float max);
 	Device findByID(int id);
 	int deleteByID(int id);
 }

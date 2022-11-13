@@ -21,56 +21,6 @@ import com.vois.iot.utiles.ResponseObject;
 @RequestMapping("/api/v1/warehouse/")
 public class WarehouseController {
 	
-	@Autowired
-    DeviceRepo deviceRepo;
 	
-	@GetMapping("/device/not-ready")
-    public ResponseEntity getNotReadyDevice() throws Exception {
-		List<Device> deviceList = deviceRepo.findByStatus("Not Ready");
-//		return ResponseEntity.status(HttpStatus.OK).body(new WorkerPojo(true, workers, "OK"), HttpStatus.OKdeviceList);
-		return new ResponseEntity(new ResponseObject(true, deviceList, "OK"), HttpStatus.OK);
-	}
-
-	@GetMapping("/device/ready")
-    public ResponseEntity getReadyDevice() throws Exception {
-//		List<Device> deviceList = deviceRepo.findByStatusAndTemperature();
-		List<Device> deviceListTemp = deviceRepo.findByStatusAndTemperatureBetween("Ready",-25.0f, 85.0f);
-		
-		return new ResponseEntity(new ResponseObject(true, deviceListTemp, "OK"), HttpStatus.OK);
-	}
-	
-	@PatchMapping("/device")
-    public ResponseEntity update(@RequestBody Device info) throws Exception {
-		try {
-			Device device = deviceRepo.findByID(info.getID());
-			device.setStatus(info.getStatus());
-			device.setTemperature(info.getTemperature());
-			deviceRepo.save(device);
-			return new ResponseEntity(new ResponseObject(true, null, "OK"), HttpStatus.OK);
-		}
-		catch (Exception e) {
-			// TODO: handle exception
-			return new ResponseEntity(new ResponseObject(false, null, e+""), HttpStatus.CONFLICT);
-
-		}
-	}
-	
-	
-	@DeleteMapping("/device")
-    public ResponseEntity delete(@RequestBody Device info) throws Exception {
-		try {
-			Device device = deviceRepo.findByID(info.getID());
-			deviceRepo.delete(device);
-			return new ResponseEntity(new ResponseObject(true, null, "OK"), HttpStatus.OK);
-		}
-		catch (Exception e) {
-			// TODO: handle exception
-			return new ResponseEntity(new ResponseObject(false, null, e+""), HttpStatus.CONFLICT);
-
-		}
-	}
-	// Returns all devices in the warehouse that are waiting for activation. from device table
-	// Returns an ordered result of devices available for sale.
-	// Management endpoints that enable the shop manager to remove or update a device configuration status.
 	
 }

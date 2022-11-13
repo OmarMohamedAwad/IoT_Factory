@@ -8,6 +8,8 @@ import javax.persistence.Table;
 
 import org.apache.tomcat.jni.Library;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,8 +41,9 @@ public class SIM {
     @Column(name = "STATUS")
     private String status;
     
-//    @OneToOne(mappedBy = "simCard")
-//    private Device device;
+    @JsonIgnore
+    @OneToOne(mappedBy = "simCard")
+    private Device device;
     
 	public int getID() {
 		return ID;
@@ -66,9 +69,9 @@ public class SIM {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-//	public Device getDevice() {
-//		return device;
-//	}
+	public Device getDevice() {
+		return device;
+	}
 //	public void setDevice(Device device) {
 //		this.device = device;
 //	}

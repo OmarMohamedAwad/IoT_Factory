@@ -5,6 +5,9 @@ import javax.persistence.Table;
 
 import lombok.*;
 import org.springframework.data.annotation.LastModifiedDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -37,9 +40,11 @@ public class Device {
     private float temperature;
     @Column(name = "STATUS")
     private String status;
+    @Column(name = "SIM_ID", insertable = false, updatable = false)
+    private int simID;
     
     @OneToOne
-    @JoinColumn(name = "sim_id", referencedColumnName = "id")
+    @JoinColumn(name = "SIM_ID", referencedColumnName = "id")
     private SIM simCard;
     
     @ManyToOne
@@ -81,6 +86,12 @@ public class Device {
 	}
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	public int getSimID() {
+		return simID;
+	}
+	public void setSimID(int simID) {
+		this.simID = simID;
 	}
     
 			

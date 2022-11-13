@@ -38,8 +38,8 @@ public class Category {
     @Column(name = "LOCATION")
     private String location;
     
-    @OneToMany(mappedBy = "category")
-    private List<Device> devices;
+//    @OneToMany(mappedBy = "category")
+//    private List<Device> devices;
 
     @ManyToOne
     @JoinColumn(name="warehouse_id")
@@ -68,6 +68,14 @@ public class Category {
 	public void setWarehouse(Warehouse warehouse) {
 		this.warehouse = warehouse;
 	}
+
+//	public List<Device> getDevices() {
+//		return devices;
+//	}
+//
+//	public void setDevices(List<Device> devices) {
+//		this.devices = devices;
+//	}
     
 	
 }
