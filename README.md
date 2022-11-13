@@ -73,8 +73,10 @@ Note: All credentials can be configured from application.properties.
 Note: Postman requests are attached inside the GitHub repository.
 
 ## System Design
+<img src="project source/System Draw-System Design.png">
 
 ## Server System Components
 
 ## System Implementation
 ### Server Class Diagram
+<img src="project source/System Draw-Class Diagram.png">
